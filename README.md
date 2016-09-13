@@ -1,2 +1,3 @@
 # cttest1
-github repository to test Jenkins and Git integration.
+github repository to test git + Jenkins
+# Learning github is fun
