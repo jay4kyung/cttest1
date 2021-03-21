@@ -10,8 +10,9 @@ pipeline {
 				echo 'build stage'
 				echo "Current build ID is: ${env.BUILD_ID}"
 				echo "Current build number is: ${env.BUILD_NUMBER}"
-
-				new File("/tmp/test.txt").text = "Creating new file"
+			
+				def testFile = new File("/tmp/test.txt")
+				testFile.write("Creating new file")
 
 			}
 
