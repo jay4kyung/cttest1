@@ -8,7 +8,19 @@ pipeline {
 
 			steps {
 				echo 'build stage'
-				echo "Current build number is: ${env.BUILD_ID}"
+				echo "Current build ID is: ${env.BUILD_ID}"
+				echo "Current build number is: ${env.BUILD_NUMBER}"
+
+				cat <<end > README.version
+  				This directory contains the following:
+    				Release: [${release_number}]
+    				Component: [badatahub]
+    				Changelist: [${env.BUILD_ID}]
+
+  				This was built on Jenkins:
+    				URL: [${BUILD_URL}]
+    				At the following time: [`date`]
+				end
 			}
 
 		}
