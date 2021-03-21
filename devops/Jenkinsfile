@@ -1,33 +1,14 @@
-pipeline {
 
-	agent any
+node('slave2') {
 
-	stages {
+	  stage("Cleanup Workspace"){ deleteDir() }
 
-		stage("build") {
+		stage("Checkout"){ checkout scm }
 
-			steps {
-				echo 'build stage'
-			}
+/* Build  Artifacts */
+        stage("Build"){
 
-		}
+         sh "mvn clean deploy"
 
-		stage("test") {
-
-                        steps {
-				echo "test stage"
-                        }
-
-                }
-
-		stage("deploy") {
-
-                        steps {
-				echo 'deploy stage'
-                        }
-
-                }
-
-	}
-
+        }
 }
