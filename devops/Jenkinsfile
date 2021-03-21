@@ -1,5 +1,5 @@
 
-node('slave2') {
+node('master') {
 
 	  stage("Cleanup Workspace"){ deleteDir() }
 
