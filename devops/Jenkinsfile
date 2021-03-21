@@ -8,7 +8,7 @@ node('master') {
 /* Build  Artifacts */
         stage("Build"){
 
-         sh "mvn clean deploy"
+         // sh "mvn clean deploy"
 
         }
 }
