@@ -10,6 +10,9 @@ pipeline {
 				echo 'build stage'
 				echo "Current build ID is: ${env.BUILD_ID}"
 				echo "Current build number is: ${env.BUILD_NUMBER}"
+				echo "Changed URL is: ${env.CHANGE_URL}"
+				echo "Build URL is: ${env.BUILD_URL}"
+				echo "Tag date is: ${env.TAG_DATE}"
 		
 
 			}
