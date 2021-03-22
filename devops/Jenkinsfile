@@ -2,6 +2,11 @@ pipeline {
 
 	agent any
 
+	environment {
+		NEW_VERSION = '1.3.5'
+		SERVER_CREDENTIALS = credentials('jenkins-global-credential')
+	}
+	
 	stages {
 
 		stage("build") {
@@ -14,7 +19,8 @@ pipeline {
 				echo "Build URL is: ${env.BUILD_URL}"
 				echo "Tag date is: ${env.TAG_DATE}"
 		
-
+				echo "my environment variable NEW_VERSION is: ${NEW_VERSION}"
+				echo "Server credential is: ${SERVER_CREDENTIALS}"
 			}
 
 		}
