@@ -5,7 +5,8 @@ pipeline {
 	environment {
 		NEW_VERSION = '1.3.5'
 		SERVER_CREDENTIALS = credentials('jenkins-global-credential')
-		CURRENT_TIME = sh ('date')
+		//CURRENT_TIME = sh ('date')
+		//def CURRENT_TIME = sh (script: 'date', returnStdout: true)
 		README_VERSION = "This directory contains floowing:\n.  Release:${BRANCH_NAME}\n.  Component: [badatahub]\n.  Changelist: ${CHANGE_ID}\n\n.  This was build on Jenkins:\n.     URL: ${BUILD_URL}\n.     At the folling time: ${CURRENT_TIME}"
 	}
 	
@@ -25,7 +26,8 @@ pipeline {
 				echo "Server credential is: ${SERVER_CREDENTIALS}"
 				echo "README_VERSION is: ${README_VERSION}"
 				echo "CURRENT_TIME is: ${CURRENT_TIME}"
-				
+				def CURRENT_TIME = sh (script: 'date', returnStdout: true)
+				println CURRENT_TIME
 				sh ('date')
 				sh ('touch README.version')
 				echo "README.version created"
