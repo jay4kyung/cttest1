@@ -24,6 +24,7 @@ pipeline {
 				echo "my environment variable NEW_VERSION is: ${NEW_VERSION}"
 				echo "Server credential is: ${SERVER_CREDENTIALS}"
 				echo "README_VERSION is: ${README_VERSION}"
+				echo "CURRENT_TIME is: ${CURRENT_TIME}"
 				
 				sh ('date')
 				sh ('touch README.version')
