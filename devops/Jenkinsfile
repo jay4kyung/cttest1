@@ -26,7 +26,7 @@ pipeline {
 				
 				sh ('date')
 				sh ('touch README.version')
-				sh "echo ${README_VERSIOIN} >> README.version"
+				sh "echo ${README_VERSION} >> README.version"
 				sh ('cat README.version')
 			}
 
