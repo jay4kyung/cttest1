@@ -5,8 +5,9 @@ pipeline {
 	environment {
 		NEW_VERSION = '1.3.5'
 		SERVER_CREDENTIALS = credentials('jenkins-global-credential')
-		//CURRENT_TIME = sh ('date')
-		//def CURRENT_TIME = sh (script: 'date', returnStdout: true)
+		CURRENT_TIME = sh ('date')
+		README_VERSION = "This directory contains floowing:\n  Release:${BRANCH_NAME}\n  Component: [badatahub]\n  Changelist: ${CHANGE_ID}\n\n  This was build on Jenkins:\n     URL: ${BUILD_URL}\n     At the folling time: ${CURRENT_TIME}"
+				
 		
 	}
 	
@@ -15,8 +16,6 @@ pipeline {
 		stage("build") {
 
 			steps {
-				CURRENT_TIME = sh ('date')
-				README_VERSION = "This directory contains floowing:\n  Release:${BRANCH_NAME}\n  Component: [badatahub]\n  Changelist: ${CHANGE_ID}\n\n  This was build on Jenkins:\n     URL: ${BUILD_URL}\n     At the folling time: ${CURRENT_TIME}"
 				
 				echo 'build stage'
 				echo "Current build ID is: ${env.BUILD_ID}"
