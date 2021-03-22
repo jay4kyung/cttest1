@@ -15,7 +15,8 @@ pipeline {
 		stage("build") {
 
 			steps {
-				README_VERSION = "This directory contains floowing:\n.  Release:${BRANCH_NAME}\n.  Component: [badatahub]\n.  Changelist: ${CHANGE_ID}\n\n.  This was build on Jenkins:\n.     URL: ${BUILD_URL}\n.     At the folling time: ${CURRENT_TIME}"
+				CURRENT_TIME = sh ('date')
+				README_VERSION = "This directory contains floowing:\n  Release:${BRANCH_NAME}\n  Component: [badatahub]\n  Changelist: ${CHANGE_ID}\n\n  This was build on Jenkins:\n     URL: ${BUILD_URL}\n     At the folling time: ${CURRENT_TIME}"
 				
 				echo 'build stage'
 				echo "Current build ID is: ${env.BUILD_ID}"
@@ -27,7 +28,7 @@ pipeline {
 				echo "my environment variable NEW_VERSION is: ${NEW_VERSION}"
 				echo "Server credential is: ${SERVER_CREDENTIALS}"
 				echo "README_VERSION is: ${README_VERSION}"
-				echo "CURRENT_TIME is: ${CURRENT_TIME}"
+				
 				
 			
 				sh ('date')
