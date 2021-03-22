@@ -20,12 +20,12 @@ pipeline {
 			
 			when {
                                 expression {
-                                        BRANCH_NAME == 'dev'
+                                        BRANCH_NAME == 'dev' || BRANCH_NAME == 'master'
                                 }
                         }
                         steps {
 				echo "BRANCH name is ${env.BRANCH_NAME}"
-				echo "test stage - only execute this if 'dev' branch"
+				echo "test stage - only execute this if 'dev' branch or 'master' branch"
                         }
 
                 }
