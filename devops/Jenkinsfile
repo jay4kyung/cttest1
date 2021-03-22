@@ -59,6 +59,7 @@ pipeline {
 
                         steps {
 				echo 'deploy stage'
+				def server = Artifactory.server "Artifactory"
                         }
 
                 }
