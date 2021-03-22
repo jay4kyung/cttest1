@@ -22,7 +22,7 @@ pipeline {
 			//	expression {
 			//		${env.BRANCH_NAME} == 'dev'
 			//	}
-			}
+			//}
                         steps {
 				echo "BRANCH name is ${env.BRANCH_NAME}"
 				echo "test stage - only execute this if 'dev' branch"
