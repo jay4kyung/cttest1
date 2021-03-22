@@ -1,14 +1,40 @@
+pipeline {
 
-node('master') {
+        agent any
 
-	  stage("Cleanup Workspace"){ deleteDir() }
+        stages {
 
-		stage("Checkout"){ checkout scm }
+                stage("build") {
 
-/* Build  Artifacts */
-        stage("Build"){
+                        steps {
+                                echo 'build stage'
+                                echo "Current build ID is: ${env.BUILD_ID}"
+                                echo "Current build number is: ${env.BUILD_NUMBER}"
 
-         // sh "mvn clean deploy"
+                        }
+
+                }
+
+                stage("test") {
+                        when {
+                                expression {
+                                        ${env.BRANCH_NAME} == 'dev'
+                                }
+                        }
+                        steps {
+                                echo "test stage - This stage only get executed if 'dev' branch"
+                        }
+
+                }
+
+                stage("deploy") {
+
+                        steps {
+                                echo 'deploy stage'
+                        }
+
+                }
 
         }
+
 }
