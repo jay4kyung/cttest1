@@ -27,7 +27,8 @@ pipeline {
 				sh ('date')
 				sh ('touch README.version')
 				echo "README.version created"
-				sh "echo ${README_VERSION} >> README.version"
+				//sh "echo ${README_VERSION} >> README.version"
+				writeFile file: 'README.version', text: "${README_VERSION}"
 				echo "Now reading README.version"
 				sh ('cat README.version')
 			}
